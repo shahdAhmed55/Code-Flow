@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | Code Flow</title>
+    <link rel="stylesheet" href="ProfileStyles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="nav-bar">
+        <div class="container header-content">
+            <div class="logo">
+                <span>&lt;/&gt;_</span><span>Code Flow</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../Home Page/Home.html">Home</a></li>
+                    <li><a href="languages.html">Languages</a></li>
+                    <li><a href="../Courses Page/Courses.html">Courses</a></li>
+                    <li><a href="todo.html">To do</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">contact us</a></li>
+                    <li><a href="Profile.html" class="active">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="https://via.placeholder.com/150" alt="Profile Picture" id="profile-image">
+                    <div class="avatar-edit" title="Change profile picture" id="avatar-upload-btn">
+                        <i class="fas fa-camera"></i>
+                        <input type="file" id="avatar-input" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h1 class="profile-name">
+                        My Name
+                        <span class="edit-icon" title="Edit name" data-edit-type="name"><i class="fas fa-edit"></i></span>
+                    </h1>
+                    <p class="profile-email">myName@example.com</p>
+                    <p class="profile-joined">Member since: January 2023</p>
+                </div>
+            </div>
+            
+            <div class="profile-bio">
+                <div class="bio-header">
+                    <h2 class="section-title">About Me</h2>
+                    <span class="edit-icon" title="Edit bio" data-edit-type="bio"><i class="fas fa-edit"></i></span>
+                </div>
+                <p id="bio-content">
+                    Hi there! I'm a passionate Egyptian software developer with 2 years of experience in web development.
+                    I love learning new technologies and sharing knowledge with others. Currently focusing on
+                    improving my skills in machine learning & AI and SQL.
+                </p>
+            </div>
+            
+            <div class="interests">
+                <div class="bio-header">
+                    <h2 class="section-title">Interests</h2>
+                    <span class="edit-icon" title="Edit interests" data-edit-type="interests"><i class="fas fa-edit"></i></span>
+                </div>
+                <div class="interest-tags" id="interests-container">
+                    <span class="tag">HTML</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Web Development</span>
+                    <span class="tag">Data Science</span>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Courses Section -->
+        <section class="courses-section">
+            <div class="courses-header">
+                <h2 class="section-title">My Courses</h2>
+                <a href="../Courses Page/Courses.html" class="view-all-link">View All Courses</a>
+            </div>
+            
+            <div class="courses-tabs">
+                <div class="tab active" data-tab="all">All Courses</div>
+                <div class="tab" data-tab="in-progress">In Progress</div>
+                <div class="tab" data-tab="completed">Completed</div>
+            </div>
+            
+            <div class="course-cards" id="courses-container">
+                <!-- Course 1 - Paid -->
+                <div class="course-card" data-progress="75" data-type="Paid">
+                    <div class="course-image">
+                        <img src="images/javascript-course.jpg" alt="JavaScript Mastery">
+                    </div>
+                    <div class="course-details">
+                        <h3 class="course-title">JavaScript Mastery</h3>
+                        <p class="course-category">Web Development</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%"></div>
+                        </div>
+                        <div class="course-status">
+                            <span>75% Complete</span>
+                            <span>12/16 Lessons</span>
+                        </div>
+                        <div class="course-badge">PAID</div>
+                    </div>
+                </div>
+                
+                <!-- Course 2 - Free -->
+                <div class="course-card" data-progress="100" data-type="free">
+                    <div class="course-image">
+                        <img src="images/html-css-course.jpg" alt="HTML & CSS Basics">
+                    </div>
+                    <div class="course-details">
+                        <h3 class="course-title">HTML & CSS Basics</h3>
+                        <p class="course-category">Web Development</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%"></div>
+                        </div>
+                        <div class="course-status">
+                            <span>100% Complete</span>
+                            <span>10/10 Lessons</span>
+                        </div>
+                        <div class="course-badge">FREE</div>
+                    </div>
+                </div>
+                
+                <!-- Course 3 - Paid -->
+                <div class="course-card" data-progress="30" data-type="Paid">
+                    <div class="course-image">
+                        <img src="images/python-course.jpg" alt="Python for Data Science">
+                    </div>
+                    <div class="course-details">
+                        <h3 class="course-title">Python for Data Science</h3>
+                        <p class="course-category">Data Science</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 30%"></div>
+                        </div>
+                        <div class="course-status">
+                            <span>30% Complete</span>
+                            <span>6/20 Lessons</span>
+                        </div>
+                        <div class="course-badge">PAID</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="logo">
+                <span>&lt;/&gt;_</span><span>Code Flow</span>
+            </div>
+            <div class="footer-links">
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for editing profile information -->
+    <div class="modal" id="edit-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Edit Profile</h2>
+            <div id="modal-form-container">
+                <!-- Form will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="ProfileScript.js"></script>
+</body>
+</html>
