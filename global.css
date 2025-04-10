@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+@media (min-width:787px) {
+    .container {
+        width: 750px;
+    }
+}
+@media (min-width:992px) {
+    .container {
+        width: 950px;
+    }
+}
+@media (min-width:1200px) {
+    .container {
+        width: 1150px;
+    }
+}
+body {
+font-family: "Poppins", sans-serif;
+}
+
+        footer {
+            background-color: #7a65a1;
+            padding: 40px 0 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: auto;
+            font-family: "Poppins", sans-serif;
+        }
+    
+        footer p {
+            margin: 10px 0;
+    
+            font-weight: bold;
+            font-size: 18px;
+        }
+    
+        .fab {
+            color: #fff;
+        }
+    
+        .student-icons ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+    
+        .student-icons a {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+    
+        .student-icons a:hover {
+            color: #fff;
+            transform: scale(1.1);
+        }
+    
+        .email a {
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    
+        .email a:hover {
+            text-decoration: underline;
+        }

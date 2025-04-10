@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="../HomePage.css">
+    <link rel="stylesheet" href="../global.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        html{
+            height: 100%;
+        }
+        body {
+            font-family: 'Tahoma', sans-serif;
+            background: #ffffff;
+            direction: ltr;
+            text-align: left;
+            min-height: 100%;
+            margin: 0;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #todo-container {
+            width: 600px;
+            margin: auto;
+            background: #967bb6;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        input[type="text"] {
+            width: 89%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            text-align: left;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #ca7fce;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+
+        }
+
+        button:hover {
+            background-color: #e280e2;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .delete-btn {
+            background-color: #fc3d50;
+            padding: 5px 8px;
+            transition: 0.3s ease;
+        }
+
+        .delete-btn:hover {
+            background-color: #fc1b32;
+            transform: scale(1.05);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        li span {
+            flex-grow: 1;
+            margin: 0 10px;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #cccccc;
+        }
+    </style>
+</head>
+
+<body>
+        <div class="header">
+            <div class="header-links container">
+                <h2>&lt;/&gt;_Code Flow</h2>
+                <div class="headers-link-a">
+                    <a href="../HomePage.html">Home</a>
+                    <a href="../Course Page/Courses.html">Courses</a>
+                    <a href="../Language/language.html">Languages</a>
+                    <a href="./todoList.html">To do</a>
+                    <a href="../about,footer.html">About</a>
+                    <a href="../Contact Page/contact.html">contact us</a>
+                    <a href="../SignUp/sing up,login .html" class="button">Sign in</a>
+                </div>
+            </div>
+        </div>
+    <div id="todo-container">
+        <h2>My To-Do List</h2>
+        <div class="input-task">
+            <input type="text" id="taskInput" placeholder="Type your task here">
+            <button onclick="addTask()">Add</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+    <script>
+        let taskList = document.getElementById("taskList");
+        // Load saved tasks
+        window.onload = function () {
+            let savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            savedTasks.forEach(task => renderTask(task.text, task.completed));
+        };
+        function addTask() {
+            let input = document.getElementById("taskInput");
+            let taskText = input.value.trim();
+            if (taskText === "") return;
+            renderTask(taskText, false);
+            saveTasks();
+            input.value = "";
+        }
+        function renderTask(text, isCompleted) {
+            let li = document.createElement("li");
+            let checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.checked = isCompleted;
+            let span = document.createElement("span");
+            span.textContent = text;
+            if (isCompleted) span.classList.add("completed");
+            checkbox.onclick = function () {
+                span.classList.toggle("completed");
+                saveTasks();
+            };
+            let deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.className = "delete-btn";
+            deleteBtn.onclick = function () {
+                taskList.removeChild(li);
+                saveTasks();
+            };
+            li.appendChild(checkbox);
+            li.appendChild(span);
+            li.appendChild(deleteBtn);
+            taskList.appendChild(li);
+        }
+        function saveTasks() {
+            let tasks = [];
+            taskList.querySelectorAll("li").forEach(li => {
+                let text = li.querySelector("span").textContent;
+                let completed = li.querySelector("input").checked;
+                tasks.push({ text, completed });
+            });
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+    </script>
+
+    <!-- ✅ Footer Start -->
+    <footer>
+    
+        <div class="student-icons">
+            <ul>
+                <li><a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li><a href="https://x.com" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a></li>
+                <li><a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </li>
+            </ul>
+        </div>
+        <p class="email"><a href="mailto:codeflow@gmail.com">codeflow@gmail.com</a></p>
+    </footer>
+    <!-- ✅ Footer End -->
+</body>
+
+</html>
